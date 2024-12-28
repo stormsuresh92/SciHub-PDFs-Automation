@@ -1,17 +1,16 @@
 from pathlib import Path
 from scihub import SciHub
 
-path = Path("download")
-
+path = Path("./Downloaded PDFs")
+path.mkdir(exist_ok=True)
 
 with open ("dois.txt", "r") as file:
     dois = [line.strip() for line in file if line.strip()]
 
-
 for doi in dois:
     print(f"Testing DOI: {doi}")
-    scihub_instance = SciHub(doi, path)
+    downloder = SciHub(doi, path)
     try:
-        scihub_instance.fetch()
+        downloader.fetch()
     except Exception as e:
         print(f"Error with DOI {doi}: {e}")
