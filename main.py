@@ -9,7 +9,7 @@ with open ("dois.txt", "r") as file:
 
 for doi in dois:
     print(f"Testing DOI: {doi}")
-    downloder = SciHub(doi, path)
+    downloader = SciHub(doi, path)
     try:
         downloader.fetch()
     except Exception as e:
